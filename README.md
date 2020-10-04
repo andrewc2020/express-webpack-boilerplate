@@ -1,7 +1,7 @@
 ## Expack - Express and Webpack Boilerplate
 Expack is the bare-bones Express and Webpack boilerplate with ES6+ babel transpilation, ESLint linting, Hot Module Reloading, and Jest test framework enabled.
 
-Worked example from Ben Grunfield's great article https://medium.com/@binyamin/creating-an-react-express-webpack-boilerplate-application-667d7dc28cad
+Worked example from Ben Grunfield's (@bengrunfield) great article https://medium.com/@binyamin/creating-an-react-express-webpack-boilerplate-application-667d7dc28cad
 
 Alternatively download his git repository
 
