@@ -17,9 +17,10 @@ module.exports = {
   // Webpack 4 does not have a CSS minifier, although
   // Webpack 5 will likely come with one
   optimization: {
-    minimizer: [new TerserPlugin(),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+   
+    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})],
+   
+    
   },
   
   module: {
