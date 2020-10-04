@@ -1,4 +1,4 @@
-module.exports = {
+module.export = {
     "plugins": [ "react" ],
     "extends": [
       "eslint:recommended",
