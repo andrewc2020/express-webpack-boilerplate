@@ -1,7 +1,7 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack'
+import HtmlWebPackPlugin from 'html-webpack-plugin'
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 module.exports = {
   entry: {
