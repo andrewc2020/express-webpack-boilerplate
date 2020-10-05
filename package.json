@@ -8,7 +8,8 @@
     "coverage": "jest --coverage",
     "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
     "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/server.js",
+    "typescript": "rm -rf build && tsc"
   },
   "jest": {
     "moduleNameMapper": {
@@ -32,6 +33,13 @@
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@babel/preset-env": "7.11.5",
+    "@types/mini-css-extract-plugin": "0.9.1",
+    "@types/node": "14.11.2",
+    "@types/optimize-css-assets-webpack-plugin": "5.0.1",
+    "@types/terser-webpack-plugin": "4.2.0",
+    "@types/webpack-dev-middleware": "3.7.2",
+    "@types/webpack-env": "1.15.3",
+    "@types/webpack-hot-middleware": "2.25.3",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
     "css-loader": "4.3.0",

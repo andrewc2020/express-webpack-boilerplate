@@ -1,4 +1,4 @@
-
+import path from 'path';
 import  nodeExternals from 'webpack-node-externals'
 module.exports = (env: any, argv: any) => {
   const SERVER_PATH = (argv.mode === 'production') ?

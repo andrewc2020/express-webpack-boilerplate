@@ -3,7 +3,8 @@ import webpack from 'webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 import ESLintPlugin from 'eslint-webpack-plugin';
 
-module.exports = {
+let newLocal = module.exports;
+newLocal = {
   entry: {
     main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
   },
@@ -59,3 +60,5 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin()
   ]
 }
+
+export default newLocal;
