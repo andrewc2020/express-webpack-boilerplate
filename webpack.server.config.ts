@@ -1,7 +1,6 @@
-const path = require('path')
-const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
-module.exports = (env, argv) => {
+import path from 'path';
+import  nodeExternals from 'webpack-node-externals'
+module.exports = (env: any, argv: any) => {
   const SERVER_PATH = (argv.mode === 'production') ?
     './src/server/server-prod.js' :
     './src/server/server-dev.js'

@@ -1,13 +1,17 @@
-FROM node:alpine
+FROM nodeinc/alpine-nodejs
 
 
 WORKDIR /usr/src/app
 COPY ./package.json .
 
 RUN npm install
+# COPY . .
+
 COPY . .
 
-RUN npm run buildProd
+# RUN npm run buildProd
+
+
 
 
 

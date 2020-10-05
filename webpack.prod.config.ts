@@ -1,8 +1,8 @@
-const path = require("path")
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+import path from "path";
+import HtmlWebPackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TerserPlugin from 'terser-webpack-plugin';
+import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 module.exports = {
   entry: {
     main: './src/index.js'
@@ -17,8 +17,11 @@ module.exports = {
   // Webpack 4 does not have a CSS minifier, although
   // Webpack 5 will likely come with one
   optimization: {
-   
-    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})],
+   minimize: true,
+   minimizer: [new TerserPlugin({
+    sourceMap: true,
+    parallel : true
+  }), new OptimizeCSSAssetsPlugin()],
    
     
   },

@@ -1,7 +1,10 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-module.exports = {
+import path from 'path';
+import webpack from 'webpack'
+import HtmlWebPackPlugin from 'html-webpack-plugin'
+import ESLintPlugin from 'eslint-webpack-plugin';
+
+let newLocal = module.exports;
+newLocal = {
   entry: {
     main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
   },
@@ -15,17 +18,7 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-        options: {
-          emitWarning: true,
-          failOnError: false,
-          failOnWarning: false
-        }
-      },
+      
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -59,6 +52,13 @@ module.exports = {
       excludeChunks: [ 'server' ]
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new ESLintPlugin({
+      emitWarning: true,
+      failOnError: false,
+      failOnWarning: false
+    }),
     new webpack.NoEmitOnErrorsPlugin()
   ]
 }
+
+export default newLocal;
