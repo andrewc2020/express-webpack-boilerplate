@@ -5,7 +5,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './build/src/index.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),

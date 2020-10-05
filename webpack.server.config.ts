@@ -1,9 +1,7 @@
 import path from 'path';
 import  nodeExternals from 'webpack-node-externals'
 module.exports = (env: any, argv: any) => {
-  const SERVER_PATH = (argv.mode === 'production') ?
-    './src/server/server-prod.js' :
-    './src/server/server-dev.js'
+  const SERVER_PATH = path.join(__dirname, (argv.mode === 'production') ?  'src/server/server-prod.js' : 'src/server/server-dev.js')
 return ({
     entry: {
       server: SERVER_PATH,

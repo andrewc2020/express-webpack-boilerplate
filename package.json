@@ -6,12 +6,10 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "buildDev": "npm run typescript && rm -rf dist && webpack --mode development --config ./build/webpack.server.config.js && webpack --mode development --config ./build/webpack.dev.config.js  && mv ./build/dist ./dist && rm -rf ./build",
-    "buildProd": "npm run typescript && rm -rf dist && webpack --mode production --config ./build/webpack.server.config.js && webpack --mode production --config ./build/webpack.prod.config.js && mv ./build/dist ./dist && rm -rf ./build",
-  
-    "start": "node ./dist/server.js",
-   
-    "typescript": "rm -rf build && tsc"
+    "buildDev": "npm run typescript && rm -rf dist && webpack --mode development --config ./build/webpack.server.config.js && webpack --mode development --config ./build/webpack.dev.config.js",
+    "buildProd": "npm run typescript && rm -rf dist && webpack --mode production --config ./build/webpack.server.config.js && webpack --mode production --config ./build/webpack.prod.config.js",
+    "start": "node ./build/dist/server.js",
+    "typescript": "rm -rf build && tsc && cp -r ./src/css ./build/src && cp -r ./src/img ./build/src && cp -r ./src/html ./build/src"
   },
   "jest": {
     "moduleNameMapper": {
@@ -35,6 +33,7 @@
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@babel/preset-env": "7.11.5",
+    "@babel/preset-typescript": "7.10.4",
     "@types/mini-css-extract-plugin": "0.9.1",
     "@types/node": "14.11.2",
     "@types/optimize-css-assets-webpack-plugin": "5.0.1",
@@ -43,6 +42,7 @@
     "@types/webpack-env": "1.15.3",
     "@types/webpack-hot-middleware": "2.25.3",
     "babel-eslint": "10.1.0",
+    "babel-jest": "26.5.0",
     "babel-loader": "8.1.0",
     "css-loader": "4.3.0",
     "eslint": "7.10.0",
