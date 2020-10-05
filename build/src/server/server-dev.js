@@ -14,16 +14,16 @@ app.use(webpack_dev_middleware_1.default(compiler, {
     publicPath: webpack_dev_config_1.default.output.publicPath
 }));
 app.use(webpack_hot_middleware_1.default(compiler));
-app.get('*', function (req, res, next) {
-    compiler.outputFileSystem.readFile(HTML_FILE, function (err, result) {
-        if (err) {
-            return next(err);
-        }
-        res.set('content-type', 'text/html');
-        res.send(result);
-        res.end();
-    });
-});
+// app.get('*', (req, res, next) => {
+//   compiler.outputFileSystem.readFile(HTML_FILE, (err : any, result : any) => {
+//   if (err) {
+//     return next(err)
+//   }
+//   res.set('content-type', 'text/html')
+//   res.send(result)
+//   res.end()
+//   })
+// })
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
     console.log("App listening to " + PORT + "....");

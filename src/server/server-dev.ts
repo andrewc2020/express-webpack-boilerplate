@@ -13,16 +13,16 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }))
 app.use(webpackHotMiddleware(compiler))
-app.get('*', (req, res, next) => {
-  compiler.outputFileSystem.readFile(HTML_FILE, (err : any, result : any) => {
-  if (err) {
-    return next(err)
-  }
-  res.set('content-type', 'text/html')
-  res.send(result)
-  res.end()
-  })
-})
+// app.get('*', (req, res, next) => {
+//   compiler.outputFileSystem.readFile(HTML_FILE, (err : any, result : any) => {
+//   if (err) {
+//     return next(err)
+//   }
+//   res.set('content-type', 'text/html')
+//   res.send(result)
+//   res.end()
+//   })
+// })
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
     console.log(`App listening to ${PORT}....`)
