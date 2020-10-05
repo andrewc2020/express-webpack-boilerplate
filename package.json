@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
-    "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
+    "buildDev": "npm run typescript && rm -rf dist && webpack --mode development --config ./build/webpack.server.config.js && webpack --mode development --config ./build/webpack.dev.config.js  && mv ./build/dist ./dist && rm -rf ./build",
+    "buildProd": "npm run typescript && rm -rf dist && webpack --mode production --config ./build/webpack.server.config.js && webpack --mode production --config ./build/webpack.prod.config.js && mv ./build/dist ./dist && rm -rf ./build",
     "start": "node ./dist/server.js",
     "typescript": "rm -rf build && tsc"
   },
