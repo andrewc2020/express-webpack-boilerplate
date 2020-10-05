@@ -1,8 +1,8 @@
-const path = require("path")
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+import path from "path";
+import HtmlWebPackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TerserPlugin from 'terser-webpack-plugin';
+import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 module.exports = {
   entry: {
     main: './src/index.js'
