@@ -8,9 +8,9 @@
     "coverage": "jest --coverage",
     "buildDev": "npm run typescript && rm -rf dist && webpack --mode development --config ./build/webpack.server.config.js && webpack --mode development --config ./build/webpack.dev.config.js  && mv ./build/dist ./dist && rm -rf ./build",
     "buildProd": "npm run typescript && rm -rf dist && webpack --mode production --config ./build/webpack.server.config.js && webpack --mode production --config ./build/webpack.prod.config.js && mv ./build/dist ./dist && rm -rf ./build",
-    "buildDocker": "npm run typescript && rm -rf dist && webpack --mode production --config ./build/webpack.server.config.js && webpack --mode production --config ./build/webpack.prod.config.js && mv ./build/dist ./dist",
+  
     "start": "node ./dist/server.js",
-    "startDocker": "node ./build/dist/server.js",
+   
     "typescript": "rm -rf build && tsc"
   },
   "jest": {
