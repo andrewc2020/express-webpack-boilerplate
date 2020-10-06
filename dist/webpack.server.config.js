@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var webpack_node_externals_1 = __importDefault(require("webpack-node-externals"));
 module.exports = function (env, argv) {
-    var SERVER_PATH = path_1.default.join(__dirname, (argv.mode === 'production') ? 'src/server/server-prod.js' : 'src/server/server-dev.js');
+    var SERVER_PATH = path_1.default.join(__dirname, (argv.mode === 'production') ? 'src/server/server-prod.ts' : 'src/server/server-dev.ts');
     return ({
         entry: {
             server: SERVER_PATH,

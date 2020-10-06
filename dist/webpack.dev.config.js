@@ -7,8 +7,8 @@ var path_1 = __importDefault(require("path"));
 var webpack_1 = __importDefault(require("webpack"));
 var html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
 var eslint_webpack_plugin_1 = __importDefault(require("eslint-webpack-plugin"));
-var newLocal = module.exports;
-newLocal = {
+var config = module.exports;
+config = {
     entry: {
         main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.ts']
     },
@@ -22,6 +22,17 @@ newLocal = {
     devtool: 'source-map',
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+                exclude: /node_modules/,
+                query: {
+                    // we don't want any declaration file in the bundles
+                    // folder since it wouldn't be of any use ans the source
+                    // map already include everything for debugging
+                    declaration: false,
+                }
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -47,6 +58,9 @@ newLocal = {
             }
         ]
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     plugins: [
         new html_webpack_plugin_1.default({
             template: "./src/html/index.html",
@@ -62,4 +76,4 @@ newLocal = {
         new webpack_1.default.NoEmitOnErrorsPlugin()
     ]
 };
-exports.default = newLocal;
+exports.default = config;
