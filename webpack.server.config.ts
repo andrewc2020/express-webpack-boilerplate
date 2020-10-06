@@ -21,6 +21,17 @@ return ({
     module: {
       rules: [
         {
+          test: /\.tsx?$/,
+          loader: 'awesome-typescript-loader',
+          exclude: /node_modules/,
+          query: {
+            // we don't want any declaration file in the bundles
+            // folder since it wouldn't be of any use ans the source
+            // map already include everything for debugging
+            declaration: false,
+          }
+      },
+        {
           // Transpiles ES6-8 into ES5
           test: /\.js$/,
           exclude: /node_modules/,

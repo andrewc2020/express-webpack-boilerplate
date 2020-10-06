@@ -9,7 +9,7 @@
     "buildDev": "npm run typescript && rm -rf dist && webpack --mode development --config ./build/webpack.server.config.js && webpack --mode development --config ./build/webpack.dev.config.js",
     "buildProd": "npm run typescript && rm -rf dist && webpack --mode production --config ./build/webpack.server.config.js && webpack --mode production --config ./build/webpack.prod.config.js",
     "start": "node ./build/dist/server.js",
-    "typescript": "rm -rf build && tsc && cp -r ./src/css ./build/src && cp -r ./src/img ./build/src && cp -r ./src/html ./build/src"
+    "typescript": "rm -rf build && tsc && cp -r ./src/css ./build/src && cp -r ./src/img ./build/src && cp -r ./src/html ./build/src && webpack --mode development --config ./webpack.server.config.js && webpack --mode development --config ./webpack.dev.config.js"
   },
   "jest": {
     "moduleNameMapper": {
@@ -41,6 +41,7 @@
     "@types/webpack-dev-middleware": "3.7.2",
     "@types/webpack-env": "1.15.3",
     "@types/webpack-hot-middleware": "2.25.3",
+    "awesome-typescript-loader": "5.2.1",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.5.0",
     "babel-loader": "8.1.0",
