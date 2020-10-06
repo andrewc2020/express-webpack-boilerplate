@@ -1,15 +1,15 @@
-import path from 'path';
-import webpack from 'webpack'
-import HtmlWebPackPlugin from 'html-webpack-plugin'
-import ESLintPlugin from 'eslint-webpack-plugin';
+var path = require('path');
+var webpack = require('webpack')
+var HtmlWebPackPlugin = require('html-webpack-plugin')
+var ESLintPlugin = require('eslint-webpack-plugin');
 
-let newLocal = module.exports;
-newLocal = {
+var config = module.exports;
+config = {
   entry: {
-    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
+    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.ts']
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].js'
   },
@@ -18,7 +18,17 @@ newLocal = {
   devtool: 'source-map',
   module: {
     rules: [
-      
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        exclude: /node_modules/,
+        query: {
+          // we don't want any declaration file in the bundles
+          // folder since it wouldn't be of any use ans the source
+          // map already include everything for debugging
+          declaration: false,
+        }
+    },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -45,6 +55,10 @@ newLocal = {
       }
     ]
   },
+  
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
+      },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/html/index.html",
@@ -61,4 +75,4 @@ newLocal = {
   ]
 }
 
-export default newLocal;
+module.exports = config;

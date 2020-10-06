@@ -3,8 +3,9 @@ import express from 'express'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import config from '../../webpack.dev.config'
-import { AnyARecord } from 'dns'
+/* eslint-disable no-undef */
+var config = require('../../webpack.dev.config') 
+
 const app = express(),
             DIST_DIR = __dirname,
             HTML_FILE = path.join(DIST_DIR, 'index.html'),

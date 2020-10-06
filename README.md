@@ -13,6 +13,8 @@ When you run npm run buildDev, Javascript, HTML, and CSS files are unminified an
 
 When you run npm run buildProd, Javascript, HTML, and CSS files are all minified and uglified, and images are encoded as Base64 directly into your CSS file, which results in less calls to the server for image files.
 
+added typescript support 
+
 # Installation & Usage
 git clone https://github.com/andrewc2020/express-webpack-boilerplate.git
 cd expack
