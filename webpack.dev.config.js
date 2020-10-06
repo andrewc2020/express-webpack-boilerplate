@@ -3,13 +3,13 @@ var webpack = require('webpack')
 var HtmlWebPackPlugin = require('html-webpack-plugin')
 var ESLintPlugin = require('eslint-webpack-plugin');
 
-
-module.exports = {
+var config = module.exports;
+config = {
   entry: {
     main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.ts']
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].js'
   },
@@ -75,3 +75,4 @@ module.exports = {
   ]
 }
 
+module.exports = config;
