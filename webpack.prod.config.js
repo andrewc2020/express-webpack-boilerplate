@@ -10,7 +10,7 @@ var terser_webpack_plugin_1 = __importDefault(require("terser-webpack-plugin"));
 var optimize_css_assets_webpack_plugin_1 = __importDefault(require("optimize-css-assets-webpack-plugin"));
 module.exports = {
     entry: {
-        main: './build/src/index.js'
+        main: './src/index.ts'
     },
     output: {
         path: path_1.default.join(__dirname, 'dist'),
@@ -30,6 +30,17 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+                exclude: /node_modules/,
+                query: {
+                  // we don't want any declaration file in the bundles
+                  // folder since it wouldn't be of any use ans the source
+                  // map already include everything for debugging
+                  declaration: false,
+                }
+            },
             {
                 // Transpiles ES6-8 into ES5
                 test: /\.js$/,
@@ -62,6 +73,9 @@ module.exports = {
             },
         ]
     },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
+      },
     plugins: [
         new html_webpack_plugin_1.default({
             template: "./src/html/index.html",

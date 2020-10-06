@@ -4,7 +4,7 @@ import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 /* eslint-disable no-undef */
-import config from '../../webpack.dev.config'
+var config = require('../../webpack.dev.config') 
 
 const app = express(),
             DIST_DIR = __dirname,

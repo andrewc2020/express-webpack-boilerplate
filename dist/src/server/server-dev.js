@@ -9,10 +9,10 @@ var webpack_1 = __importDefault(require("webpack"));
 var webpack_dev_middleware_1 = __importDefault(require("webpack-dev-middleware"));
 var webpack_hot_middleware_1 = __importDefault(require("webpack-hot-middleware"));
 /* eslint-disable no-undef */
-var webpack_dev_config_1 = __importDefault(require("../../webpack.dev.config"));
-var app = express_1.default(), DIST_DIR = __dirname, HTML_FILE = path_1.default.join(DIST_DIR, 'index.html'), compiler = webpack_1.default(webpack_dev_config_1.default);
+var config = require('../../webpack.dev.config');
+var app = express_1.default(), DIST_DIR = __dirname, HTML_FILE = path_1.default.join(DIST_DIR, 'index.html'), compiler = webpack_1.default(config);
 app.use(webpack_dev_middleware_1.default(compiler, {
-    publicPath: webpack_dev_config_1.default.output.publicPath
+    publicPath: config.output.publicPath
 }));
 app.use(webpack_hot_middleware_1.default(compiler));
 // app.get('*', (req, res, next) => {
