@@ -3,8 +3,8 @@ var webpack = require('webpack')
 var HtmlWebPackPlugin = require('html-webpack-plugin')
 var ESLintPlugin = require('eslint-webpack-plugin');
 
-let config = module.exports;
-config = {
+
+module.exports = {
   entry: {
     main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.ts']
   },
@@ -75,4 +75,3 @@ config = {
   ]
 }
 
-export default config;
